@@ -1,0 +1,25 @@
+classdef ReedsSheppPath
+    %REEDSSHEPPPATH 此处显示有关此类的摘要
+    %   此处显示详细说明
+    
+    properties
+        RSPath = reedsSheppConnection;
+        start_pos = [0, 0, 0];
+        goal_pos = [0, 0, 0];
+        min_radius = 1;
+    end
+    
+    methods
+        function obj = ReedsSheppPath(start_pos, goal_pos, min_radius)
+            obj.start_pos = start_pos;
+            obj.goal_pos  = goal_pos;
+            obj.min_radius = min_radius;
+        end
+        
+        function [path, cost] = Connect(obj)
+            [RsSegment, cost] = connect(obj.RSPath, obj.start_pos, obj.goal_pos);
+            
+        end
+    end
+end
+
